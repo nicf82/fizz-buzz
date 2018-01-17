@@ -3,9 +3,19 @@ package com.example.fizzbuzz;
 
 public class FizzBuzz {
 
-    public String evaluate(int start, int end) {
+    public static void main(String[] args) {
+
+        FizzBuzz fizzBuzz = new FizzBuzz();
+
+        FizzBuzzResult fizzBuzzResult = fizzBuzz.evaluate(1, 20);
+
+        System.out.println( fizzBuzzResult.toOutputFormattedString() );
+    }
+
+    public FizzBuzzResult evaluate(int start, int end) {
 
         StringBuilder buffer = new StringBuilder();
+        FizzBuzzResult result = new FizzBuzzResult();
 
         for(int i = start; i <= end; i++) {
             if(i != start) buffer.append(" ");
@@ -16,25 +26,32 @@ public class FizzBuzz {
             boolean divBy5 = i % 5 == 0;
 
             if( (""+i).contains("3") ) {
-                element = "lucky";
+                element = "luck";
+                result.incrementLuckCount();
             }
             else if(divBy3 && divBy5) {
                 element = "fizzbuzz";
+                result.incrementFizzBuzzCount();
             }
             else if(divBy3) {
                 element = "fizz";
+                result.incrementFizzCount();
             }
             else if(divBy5) {
                 element = "buzz";
+                result.incrementBuzzCount();
             }
             else {
                 element = ""+i;
+                result.incrementNumberCount();
             }
 
             buffer.append(element);
         }
 
-        return buffer.toString();
+        result.setOutput( buffer.toString() );
+
+        return result;
 
     }
 }
