@@ -15,7 +15,10 @@ public class FizzBuzz {
             boolean divBy3 = i % 3 == 0;
             boolean divBy5 = i % 5 == 0;
 
-            if(divBy3 && divBy5) {
+            if( (""+i).contains("3") ) {
+                element = "lucky";
+            }
+            else if(divBy3 && divBy5) {
                 element = "fizzbuzz";
             }
             else if(divBy3) {
