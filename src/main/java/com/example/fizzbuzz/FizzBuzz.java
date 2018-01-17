@@ -3,6 +3,15 @@ package com.example.fizzbuzz;
 
 public class FizzBuzz {
 
+    public static void main(String[] args) {
+
+        FizzBuzz fizzBuzz = new FizzBuzz();
+
+        String result = fizzBuzz.evaluate(1, 20);
+
+        System.out.println( result );
+    }
+
     public String evaluate(int start, int end) {
 
         StringBuilder buffer = new StringBuilder();
